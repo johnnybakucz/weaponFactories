@@ -1,0 +1,55 @@
+companies.html - fooldal, kilistázza  a gyártókat és azok adatait
+companies_edit.html - meglévő gyártó szerkesztése vagy új létrehozása
+models.html - kilistázza egy adott gyártó modelljeit
+models_edit.html - meglévő modell szerkesztése vagy új létrehozása
+
+Routing:
+
+middleware/generic/
+    render.js
+
+middleware/factory/
+    getFactories.js
+    getFactory.js
+    saveFactory.js
+    delFactory.js
+
+middleware/model/
+    getModels.js
+    getModel.js
+    saveModel.js
+    delModel.js
+____________________________________________
+GET, POST /weaponfactories
+    getFactories
+    render(index.html)
+
+GET, POST /weaponfactories/new                 - új gyár létrehozása
+    saveFactory
+    render
+
+GET, POST /weaponfactories/edit/:factoryid     - gyár szerkesztése
+    getFactory
+    saveFactory
+    render
+
+GET, POST /weaponfactories/del/:factoryid      - egy adott gyár törlése
+    getFactory
+    delFactory
+
+GET, POST /weaponmodels/:factoryid               - gyár modelljeinek kilistázása
+    getModels
+    render
+
+GET, POST /weaponmodels/:factoryid/new
+    saveModel
+    render
+
+GET, POST /weaponmodels/:factoryid/:modelid      - modell szerkesztése vagy új létrehozása
+    getModel
+    saveModel
+    render
+
+weaponmodels/:factoryid/:modelid/del  - modell törlése
+    getModel
+    delModel
