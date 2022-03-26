@@ -22,16 +22,16 @@ middleware/model/
 ____________________________________________
 GET, POST /weaponfactories
     getFactories
-    render(index.html)
+    render(companies.html)
 
 GET, POST /weaponfactories/new                 - új gyár létrehozása
     saveFactory
-    render
+    render(companies_edit.html)
 
 GET, POST /weaponfactories/edit/:factoryid     - gyár szerkesztése
     getFactory
     saveFactory
-    render
+    render(companies_edit.html)
 
 GET, POST /weaponfactories/del/:factoryid      - egy adott gyár törlése
     getFactory
@@ -39,16 +39,16 @@ GET, POST /weaponfactories/del/:factoryid      - egy adott gyár törlése
 
 GET, POST /weaponmodels/:factoryid               - gyár modelljeinek kilistázása
     getModels
-    render
+    render(models.html)
 
 GET, POST /weaponmodels/:factoryid/new
     saveModel
-    render
+    render(models_edit.html)
 
 GET, POST /weaponmodels/:factoryid/:modelid      - modell szerkesztése vagy új létrehozása
     getModel
     saveModel
-    render
+    render(models_edit.html)
 
 weaponmodels/:factoryid/:modelid/del  - modell törlése
     getModel
