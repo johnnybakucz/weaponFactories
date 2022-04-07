@@ -1,0 +1,25 @@
+<%- include('header') %>
+<h1>Edit existing model or define a new one</h1>
+
+<div class="form-container">
+    <form>
+        <label class="text-field-label" for="name">Name</label>
+        <input class="text-field" id="name" type="text" value="Write name here"/>
+        <label class="text-field-label" for="caliber">Caliber</label>
+        <input class="text-field" id="caliber" type="text" value="Write Caliber here"/>
+        <label class="text-field-label" for="sold">Sold</label>
+        <input class="text-field" id="sold" type="text" value="Write net worth here"/>
+        <label class="text-field-label" for="year-of-dev">Year of Dev.</label>
+        <input class="text-field" id="year-of-dev" type="text" value="Write year of estabilishment here"/>
+        <label class="text-field-label" for="production">In production?</label>
+        <input class="text-field" id="production" type="checkbox" value="on"/>
+    </form>
+</div>
+
+<form class="add-item" action="models.html">
+    <div class="modify-buttons-container">
+        <input class="modify-button" type="submit" value="Save"/>
+        <input class="modify-button" type="submit" value="Cancel"/>
+    </div>
+</form>
+<%- include('footer') %>

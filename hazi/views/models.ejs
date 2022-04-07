@@ -1,0 +1,59 @@
+<%- include('header') %>
+<h1>Models of the company: Glock</h1>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Caliber</th>
+            <th>Sold</th>
+            <th>Year of Development</th>
+            <th>In production?</th>
+            <th>Operations</th>
+        </tr>
+        <tr>
+            <td>
+                <a href="models.html">G18</a>
+            </td>
+            <td>9mm Parabellum</td>
+            <td>200 000</td>
+            <td>1983</td>
+            <td><input type="checkbox" value="in-production" Checked></td>
+            <td>
+                <a href="models_edit.html">Edit</a>
+                <a href="models.html">Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="models.html">G42</a>
+            </td>
+            <td>9mm Parabellum</td>
+            <td>30 000</td>
+            <td>2008</td>
+            <td><input type="checkbox" value="in-production" Checked></td>
+            <td>
+                <a href="models_edit.html">Edit</a>
+                <a href="models.html">Delete</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a href="models.html">G43</a>
+            </td>
+            <td>.45 ACP</td>
+            <td>60 000</td>
+            <td>2010</td>
+            <td><input type="checkbox" value="in-production" Checked></td>
+            <td>
+                <a href="models_edit.html">Edit</a>
+                <a href="models.html">Delete</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<form class="add-item" action="models_edit.html">
+    <input type="submit" value="Create new model" />
+</form>
+<%- include('footer') %>
