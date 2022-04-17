@@ -1,1 +1,0 @@
-További csinosítás esedékes... :)
