@@ -1,10 +1,14 @@
 var express = require('express');
 var app = express();
+const bodyParser = require('body-parser');
 
 app.set('view engine', 'ejs');
 
+app.use(bodyParser.urlencoded());
+app.use(bodyParser.json());
+
 //Serve static before session
-app.use(express.static('public'));
+app.use(express.static('views'));
 
 require('./routes/route')(app);
 

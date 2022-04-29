@@ -8,8 +8,14 @@ const getModels = require('../middleware/model/getModels');
 const saveModel = require('../middleware/model/saveModel');
 const render = require('../middleware/generic/render');
 
+const modelModel = require('../models/model');
+const factoryModel = require('../models/factory');
+
 module.exports = function (app){
-    const objRepo = {};
+    const objRepo = {
+        modelModel : modelModel,
+        factoryModel : factoryModel
+    };
     
     app.use('/weaponfactories/new',
         saveFactory(objRepo),
@@ -20,11 +26,11 @@ module.exports = function (app){
         saveFactory(objRepo),
         render(objRepo,'companies_edit'));
     
-    app.use('weaponfactories/del/:factoryid',
+    app.get('weaponfactories/del/:factoryid',
         getFactory(objRepo),
         delFactory(objRepo));
     
-    app.use('weaponfactories',
+    app.get('weaponfactories',
         getFactories(objRepo),
         render(objRepo, 'companies'));
     
@@ -37,11 +43,11 @@ module.exports = function (app){
         saveModel(objRepo),
         render(objRepo,'models_edit'));
     
-    app.use('weaponmodels/:factoryid/:modelid/del',
+    app.get('weaponmodels/:factoryid/:modelid/del',
         getModel(objRepo),
         delModel(objRepo));
     
-    app.use('weaponmodels/:factoryid',
+    app.get('weaponmodels/:factoryid',
         getModels(objRepo),
         render(objRepo,'models'));
     
