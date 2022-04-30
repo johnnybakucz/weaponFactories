@@ -4,7 +4,16 @@
  const requireOption = require('../requireOption');
 
  module.exports = function (objectrepository) {
-     return function (req, res, next) {
-         next();
-     };
+    const FactoryModel = requireOption(objectrepository, 'FactoryModel');
+
+    return function(req, res, next) {
+        FactoryModel.find({}, (err, factories) => {
+            if (err) {
+                return next(err);
+            }
+
+            res.locals.factories = factories;
+            return next();
+        });
+    };
  };

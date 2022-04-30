@@ -8,13 +8,13 @@ const getModels = require('../middleware/model/getModels');
 const saveModel = require('../middleware/model/saveModel');
 const render = require('../middleware/generic/render');
 
-const modelModel = require('../models/model');
-const factoryModel = require('../models/factory');
+const ModelModel = require('../models/model');
+const FactoryModel = require('../models/factory');
 
 module.exports = function (app){
     const objRepo = {
-        modelModel : modelModel,
-        factoryModel : factoryModel
+        ModelModel : ModelModel,
+        FactoryModel : FactoryModel
     };
     
     app.use('/weaponfactories/new',
@@ -51,4 +51,7 @@ module.exports = function (app){
         getModels(objRepo),
         render(objRepo,'models'));
     
+    app.use('/',
+        getFactories(objRepo),
+        render(objRepo, 'companies'));
 };

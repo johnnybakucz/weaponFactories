@@ -1,3 +1,13 @@
+// const CompanyModel = require('./models/factory');
+// const ModelModel = require('./models/model');
+
+// let egy = new CompanyModel();
+// egy.name = 'ok';
+// egy.save((err)=>{
+//     console.log(err);
+// });
+
+
 var express = require('express');
 var app = express();
 const bodyParser = require('body-parser');
@@ -8,7 +18,7 @@ app.use(bodyParser.urlencoded());
 app.use(bodyParser.json());
 
 //Serve static before session
-app.use(express.static('views'));
+// app.use(express.static('views'));
 
 require('./routes/route')(app);
 
