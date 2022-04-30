@@ -1,25 +1,38 @@
 <%- include('header') %>
-<h1>Edit existing model or define a new one</h1>
+<h1>Model
+    <% if (typeof model === 'undefined') { %>
+        creation
+    <% }else{ %>
+        edit
+    <% } %>
+</h1>
+<small> Factory: <%= factory.name %></small>
 
 <div class="form-container">
-    <form>
+    <form method="submit">
         <label class="text-field-label" for="name">Name</label>
-        <input class="text-field" id="name" type="text" value="Write name here"/>
+        <input class="text-field" id="name" type="text"
+            value="<%= (typeof model === 'undefined') ? '' ? model.name %>"/>
         <label class="text-field-label" for="caliber">Caliber</label>
-        <input class="text-field" id="caliber" type="text" value="Write Caliber here"/>
+        <input class="text-field" id="caliber" type="text"
+            value="<%= (typeof model === 'undefined') ? '' ? model.caliber %>"/>
         <label class="text-field-label" for="sold">Sold</label>
-        <input class="text-field" id="sold" type="text" value="Write net worth here"/>
-        <label class="text-field-label" for="year-of-dev">Year of Dev.</label>
-        <input class="text-field" id="year-of-dev" type="text" value="Write year of estabilishment here"/>
-        <label class="text-field-label" for="production">In production?</label>
-        <input class="text-field" id="production" type="checkbox" value="on"/>
+        <input class="text-field" id="sold" type="text"
+            value="<%= (typeof model === 'undefined') ? '' ? model.sold %>"/>
+        <label class="text-field-label" for="developmentYear">Year of Dev.</label>
+        <input class="text-field" id="developmentYear" type="text"
+            value="<%= (typeof model === 'undefined') ? '' ? model.developmentYear %>"/>
+        <label class="text-field-label" for="inProduction">In production?</label>
+        <input class="text-field" id="inProduction" type="checkbox"
+            value="<%= (typeof model === 'undefined') ? 'checked' ? 'checked' %>"/>
     </form>
 </div>
 
 <form class="add-item" action="models.html">
     <div class="modify-buttons-container">
         <input class="modify-button" type="submit" value="Save"/>
-        <input class="modify-button" type="submit" value="Cancel"/>
+        <!-- <input class="modify-button" type="submit" value="Cancel"/> -->
+        <a href="/weaponfactories/<%= factory._id%>">Cancel</a>
     </div>
 </form>
 <%- include('footer') %>

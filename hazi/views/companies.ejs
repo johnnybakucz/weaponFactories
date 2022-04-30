@@ -12,52 +12,27 @@
             <th>Active?</th>
             <th>Operations</th>
         </tr>
-        <tr>
-            <td>
-                <a href="models.html">Heckler & Koch</a>
-            </td>
-            <td>Obendorf, Germany</td>
-            <td>240 mill. EUR</td>
-            <td>1949</td>
-            <td>2</td>
-            <td><input type="checkbox" value="active" Checked></td>
-            <td>
-                <a href="companies_edit.html">Edit</a>
-                <a href="companies.html">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="models.html">Glock</a>
-            </td>
-            <td>Deutch-Wagram, Austria</td>
-            <td>60 mill. EUR</td>
-            <td>1963</td>
-            <td>3</td>
-            <td><input type="checkbox" value="active" Checked></td>
-            <td>
-                <a href="companies_edit.html">Edit</a>
-                <a href="companies.html">Delete</a>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <a href="models.html">Colt</a>
-            </td>
-            <td>West Hartford, USA</td>
-            <td>350 mill. EUR</td>
-            <td>1855</td>
-            <td>4</td>
-            <td><input type="checkbox" value="active" Checked></td>
-            <td>
-                <a href="companies_edit.html">Edit</a>
-                <a href="companies.html">Delete</a>
-            </td>
-        </tr>
+        <% factories.forEach(function(oneFactory){ %>
+            <tr>
+                <td>
+                    <a href="/weaponmodels/<%= oneFactory._id %>"><%= oneFactory.name %> </a>
+                </td>
+                <td><%= oneFactory.country %> </td>
+                <td><%= oneFactory.worth %> </td>
+                <td><%= oneFactory.estabilished %> </td>
+                <td><%= oneFactory.noModels %> </td>
+                <% let checked = oneFactory.active ? "checked" : ""%>
+                <td><input type="checkbox" value="active" <%= checked %> ></td>
+                <td>
+                    <a href="/weaponfactories/edit/<%=oneFactory._id%>">Edit</a>
+                    <a href="/weaponfactories/del/<%=oneFactory._id%>">Delete</a>
+                </td>
+            </tr>
+        <% }); %>
     </table>
 </div>
 
-<form class="add-item" action="companies_edit.html">
+<form class="add-item" action="/weaponfactories/new">
     <input type="submit" value="Create new company" />
 </form>
 <%- include('footer') %>

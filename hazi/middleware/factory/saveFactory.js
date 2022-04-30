@@ -1,9 +1,9 @@
 /**
  * Save the values submitted by the form
  */
- const requireOption = require('../requireOption');
+const requireOption = require('../requireOption');
 
- module.exports = function (objectrepository) {
+module.exports = function (objectrepository) {
     const FactoryModel = requireOption(objectrepository, 'FactoryModel');
 
     return function(req, res, next) {
@@ -37,4 +37,4 @@
             return res.redirect('/weaponfactories');
         });
     };
- };
+};

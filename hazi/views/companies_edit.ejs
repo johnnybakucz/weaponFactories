@@ -1,27 +1,40 @@
 <%- include('header') %> 
-<h1>Edit existing company or define a new one</h1>
+<h1>Company
+    <% if (typeof nagymama === 'undefined') { %>
+        creation
+    <% }else{ %>
+        edit
+    <% } %>
+</h1>
 
 <div class="form-container">
-    <form>
+    <form method="POST">
         <label class="text-field-label" for="name">Name</label>
-        <input class="text-field" id="name" type="text" value="Write name here"/>
+        <input class="text-field" id="name" type="text"
+            value="<%= (typeof factory === 'undefined') ? '' : factory.name %>"/>
         <label class="text-field-label" for="country">Country</label>
-        <input class="text-field" id="country" type="text" value="Write country here"/>
-        <label class="text-field-label" for="net-worth">Net worth</label>
-        <input class="text-field" id="net-worth" type="text" value="Write net worth here"/>
-        <label class="text-field-label" for="year-of-est">Year of Est.</label>
-        <input class="text-field" id="year-of-est" type="text" value="Write year of estabilishment here"/>
+        <input class="text-field" id="country" type="text"
+            value="<%= (typeof factory === 'undefined') ? '' : factory.country %>"/>
+        <label class="text-field-label" for="worth">Net worth</label>
+        <input class="text-field" id="worth" type="text"
+            value="<%= (typeof factory === 'undefined') ? '' : factory.worth %>"/>
+        <label class="text-field-label" for="estabilished">Year of Est.</label>
+        <input class="text-field" id="estabilished" type="text"
+            value=""<%= (typeof factory === 'undefined') ? '' : factory.estabilished %>"/>
         <label class="text-field-label" for="num-models">Num. of Models</label>
-        <input class="text-field" id="num-models" type="text" value="Write number of models here"/>
+        <input class="text-field" id="num-models" type="text"
+            value=""<%= (typeof factory === 'undefined') ? '' : factory.noModels %>"/>
         <label class="text-field-label" for="active">Active?</label>
-        <input class="text-field" id="active" type="checkbox" value="active"/>
+        <input class="text-field" id="active" type="checkbox"
+            value="<%= (typeof factory === 'undefined') ? 'checked' : 'checked' %>"/>
     </form>
 </div>
 
 <form class="add-item" action="companies.html">
     <div class="modify-buttons-container">
         <input class="modify-button" type="submit" value="Save"/>
-        <input class="modify-button" type="submit" value="Cancel"/>
+        <!-- <input class="modify-button" type="submit" value="Cancel"/> -->
+        <a class="modify-button" href="/weaponcompanies">Cancel</a>
     </div>
 </form>
 <%- include('footer') %>
