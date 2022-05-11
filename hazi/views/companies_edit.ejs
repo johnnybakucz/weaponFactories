@@ -8,7 +8,7 @@
 </h1>
 
 <div class="form-container">
-    <form method="POST" action="/weaponfactories">
+    <form method="POST" action="/weaponfactories/new">
         <label class="text-field-label" for="name">Name</label>
         <input class="text-field" id="name" type="text"
             value="<%= (typeof factory === 'undefined') ? '' : factory.name %>"/>
@@ -20,10 +20,10 @@
             value="<%= (typeof factory === 'undefined') ? '' : factory.worth %>"/>
         <label class="text-field-label" for="estabilished">Year of Est.</label>
         <input class="text-field" id="estabilished" type="text"
-            value=""<%= (typeof factory === 'undefined') ? '' : factory.estabilished %>"/>
+            value="<%= (typeof factory === 'undefined') ? '' : factory.estabilished %>"/>
         <label class="text-field-label" for="num-models">Num. of Models</label>
         <input class="text-field" id="num-models" type="text"
-            value=""<%= (typeof factory === 'undefined') ? '' : factory.noModels %>"/>
+            value="<%= (typeof factory === 'undefined') ? '' : factory.noModels %>"/>
         <label class="text-field-label" for="active">Active?</label>
         <input class="text-field" id="active" type="checkbox"
             value="<%= (typeof factory === 'undefined') ? 'checked' : 'checked' %>"/>
@@ -31,12 +31,12 @@
         <a class="modify-button" href="/weaponfactories">Cancel</a>
     </form>
 </div>
-<!-- 
+
 <form class="add-item" action="/weaponfactories">
     <div class="modify-buttons-container">
         <input class="modify-button" type="submit" value="Save"/>
             <input class="modify-button" type="submit" value="Cancel"/>
         <a class="modify-button" href="/weaponfactories">Cancel</a>
     </div>
-</form> -->
+</form>
 <%- include('footer') %>

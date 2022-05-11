@@ -12,19 +12,19 @@
     <form method="post">
         <label class="text-field-label" for="name">Name</label>
         <input class="text-field" id="name" type="text"
-            value="<%= (typeof model === 'undefined') ? '' ? model.name %>"/>
+            value="<%= (typeof model === 'undefined') ? '' : model.name %>"/>
         <label class="text-field-label" for="caliber">Caliber</label>
         <input class="text-field" id="caliber" type="text"
-            value="<%= (typeof model === 'undefined') ? '' ? model.caliber %>"/>
+            value="<%= (typeof model === 'undefined') ? '' : model.caliber %>"/>
         <label class="text-field-label" for="sold">Sold</label>
         <input class="text-field" id="sold" type="text"
-            value="<%= (typeof model === 'undefined') ? '' ? model.sold %>"/>
+            value="<%= (typeof model === 'undefined') ? '' : model.sold %>"/>
         <label class="text-field-label" for="developmentYear">Year of Dev.</label>
         <input class="text-field" id="developmentYear" type="text"
-            value="<%= (typeof model === 'undefined') ? '' ? model.developmentYear %>"/>
+            value="<%= (typeof model === 'undefined') ? '' : model.developmentYear %>"/>
         <label class="text-field-label" for="inProduction">In production?</label>
         <input class="text-field" id="inProduction" type="checkbox"
-            value="<%= (typeof model === 'undefined') ? 'checked' ? 'checked' %>"/>
+            value="<%= (typeof model === 'undefined') ? 'checked' : 'checked' %>"/>
         
     </form>
 </div>
