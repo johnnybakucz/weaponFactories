@@ -8,7 +8,7 @@
 </h1>
 
 <div class="form-container">
-    <form method="POST" action="/weaponfactories/new">
+    <form method="POST">
         <label class="text-field-label" for="name">Name</label>
         <input class="text-field" id="name" type="text"
             value="<%= (typeof factory === 'undefined') ? '' : factory.name %>"/>
@@ -27,16 +27,10 @@
         <label class="text-field-label" for="active">Active?</label>
         <input class="text-field" id="active" type="checkbox"
             value="<%= (typeof factory === 'undefined') ? 'checked' : 'checked' %>"/>
-        <input type="submit" class="modify-button" value="Save"/>
-        <a class="modify-button" href="/weaponfactories">Cancel</a>
+        <div class="modify-buttons-container">
+            <input type="submit" class="modify-button" value="Save"/>
+            <a href="/">Cancel</a>
+        </div>
     </form>
 </div>
-
-<form class="add-item" action="/weaponfactories">
-    <div class="modify-buttons-container">
-        <input class="modify-button" type="submit" value="Save"/>
-            <input class="modify-button" type="submit" value="Cancel"/>
-        <a class="modify-button" href="/weaponfactories">Cancel</a>
-    </div>
-</form>
 <%- include('footer') %>

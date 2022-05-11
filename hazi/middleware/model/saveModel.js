@@ -15,7 +15,7 @@
             typeof req.body.inProduction === 'undefined' ||
             typeof res.locals.factory === 'undefined'
         ) {
-            console.log("undefined dolgok a save middleware-ben")
+            console.log("undefined dolgok a save model middleware-ben")
             return next();
         }
 
@@ -23,13 +23,13 @@
             res.locals.model = new ModelModel();
         }
 
-        if (Number.isNaN(parseInt(req.body.sold, 10))) {
-            return next(new Error('Number sold must be a number!'));
-        }
+        // if (Number.isNaN(parseInt(req.body.sold, 10))) {
+        //     return next(new Error('Number sold must be a number!'));
+        // }
 
-        if (Number.isNaN(parseInt(req.body.developmentYear, 10))) {
-            return next(new Error('Development year must be a number!'));
-        }
+        // if (Number.isNaN(parseInt(req.body.developmentYear, 10))) {
+        //     return next(new Error('Development year must be a number!'));
+        // }
 
         res.locals.model.name = req.body.name;
         res.locals.model.caliber = req.body.caliber;
