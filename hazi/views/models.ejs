@@ -14,7 +14,7 @@
         <% models.forEach(function(oneModel){ %>
             <tr>
                 <td>
-                    <a href="/weaponmodels/<%= factory._id%>/edit/<%= oneModel._id%>">oneModel.name</a>
+                    <a href="/weaponmodels/<%= factory._id%>/<%= oneModel._id%>">oneModel.name</a>
                 </td>
                 <td>oneModel.caliber</td>
                 <td>oneModel.sold</td>
@@ -22,7 +22,7 @@
                 <% let checked = oneModel.inProduction ? 'checked' : ''%>
                 <td><input type="checkbox" value="in-production" <%=checked%>></td>
                 <td>
-                    <a href="models_edit.html">Edit</a>
+                    <a href="/weaponmodels/<%= factory._id%>/<%= oneModel._id%>">Edit</a>
                     <a href="/weaponmodels/<%= factory._id%>/<%= oneModel._id%>/del">Delete</a>
                 </td>
             </tr>

@@ -9,7 +9,7 @@
 <small> Factory: <%= factory.name %></small>
 
 <div class="form-container">
-    <form method="submit">
+    <form method="post">
         <label class="text-field-label" for="name">Name</label>
         <input class="text-field" id="name" type="text"
             value="<%= (typeof model === 'undefined') ? '' ? model.name %>"/>
@@ -25,14 +25,15 @@
         <label class="text-field-label" for="inProduction">In production?</label>
         <input class="text-field" id="inProduction" type="checkbox"
             value="<%= (typeof model === 'undefined') ? 'checked' ? 'checked' %>"/>
+        
     </form>
 </div>
 
-<form class="add-item" action="models.html">
+<form class="add-item" action="/weaponmodels/<%= factory._id%>">
     <div class="modify-buttons-container">
         <input class="modify-button" type="submit" value="Save"/>
         <!-- <input class="modify-button" type="submit" value="Cancel"/> -->
-        <a href="/weaponfactories/<%= factory._id%>">Cancel</a>
+        <a href="/weaponmodels/<%= factory._id%>">Cancel</a>
     </div>
 </form>
 <%- include('footer') %>

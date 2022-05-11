@@ -26,28 +26,28 @@ module.exports = function (app){
         saveFactory(objRepo),
         render(objRepo,'companies_edit'));
     
-    app.get('weaponfactories/del/:factoryid',
+    app.get('/weaponfactories/del/:factoryid',
         getFactory(objRepo),
         delFactory(objRepo));
     
-    app.get('weaponfactories',
+    app.get('/weaponfactories',
         getFactories(objRepo),
         render(objRepo, 'companies'));
     
-    app.use('weaponmodels/:factoryid/new',
+    app.use('/weaponmodels/:factoryid/new',
         saveModel(objRepo),
         render(objRepo,'models_edit'));
 
-    app.use('weaponmodels/:factoryid/:modelid',
+    app.use('/weaponmodels/:factoryid/:modelid',
         getModel(objRepo),
         saveModel(objRepo),
         render(objRepo,'models_edit'));
     
-    app.get('weaponmodels/:factoryid/:modelid/del',
+    app.get('/weaponmodels/:factoryid/:modelid/del',
         getModel(objRepo),
         delModel(objRepo));
     
-    app.get('weaponmodels/:factoryid',
+    app.get('/weaponmodels/:factoryid',
         getModels(objRepo),
         render(objRepo,'models'));
     
