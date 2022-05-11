@@ -9,7 +9,7 @@
     return function(req, res, next) {
         FactoryModel.findOne({ _id: req.params.factoryid }, (err, factory) => {
             if (err || !factory) {
-                console.log("nem találom a gyárat!");
+                console.log("nem találom a gyárat! factoryid: "+req.params.factoryid);
                 return next(err);
             }
 

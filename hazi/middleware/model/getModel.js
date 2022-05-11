@@ -9,7 +9,7 @@ module.exports = function (objectrepository) {
     return function(req, res, next) {
         ModelModel.findOne(
             {
-                _id: req.params.factoryid
+                _id: req.params.modelid
             },
             (err, model) => {
                 if (err || !model) {

@@ -1,0 +1,31 @@
+<%- include('header') -%>
+
+<h1>Model 
+    <% if (typeof model === 'undefined') { %>
+        creation
+    <% }else{ %>
+        edit
+    <% } %>
+</h1>
+
+<div class="form-container">
+    <form method="POST">
+        
+        <label class="text-field-label" for="name">Name</label>
+        <input class="text-field" id="name" name="name" type="text" value="<%= (typeof model === 'undefined') ? '' : model.nev %>"/>
+        <label class="text-field-label" for="caliber">Caliber</label>
+        <input class= "text-field" id="caliber" name="caliber" type="text" value="<%= (typeof model === 'undefined') ? '' : model.caliber %>"/>
+        <label class="text-field-label" for="alkohol">Alkoholtartalom</label>
+        <input class="text-field" id="alkohol" name="alkohol" type="text" value="<%= (typeof model === 'undefined') ? '' : model.alkohol %>"/>
+        <label class="text-field-label" for="keseruseg">Keserűség</label>
+        <input class="text-field" id="keseruseg" name="keseruseg" type="text" value="<%= (typeof model === 'undefined') ? '' : model.keseruseg %>"/>
+        
+        <div class="modify-buttons-container">
+            <input class="modify-button" type="submit" value="Mentés"/>
+            <a href="/termek/<%= fozde._id %>">Mégsem</a>
+        </div>
+
+    </form>
+</div>
+
+<%- include('footer') -%>

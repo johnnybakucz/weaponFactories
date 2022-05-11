@@ -38,12 +38,13 @@
         res.locals.model.inProduction = req.body.inProduction;
         res.locals.model._producer = res.locals.factory._id;
 
+        console.log(res.locals.factory._id)
         res.locals.model.save(err => {
             if (err) {
                 return next(err);
             }
 
-            return res.redirect(`/model/${res.locals.factory._id}`);
+            return res.redirect(`/weaponmodels/${res.locals.factory._id}`);
         });
     };
  };

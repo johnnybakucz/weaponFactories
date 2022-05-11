@@ -1,0 +1,31 @@
+<%- include('header') -%>
+
+<h1>Factories</h1>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Country</th>
+            <th> - </th>
+        </tr>
+        <% factoryList.forEach(function(oneFactory){ %>
+            <tr>
+                <td>
+                    <a href="/weaponmodels/<%= oneFactory._id %>"><%= oneFactory.name %></a>
+                </td>
+                <td><%= oneFactory.country %></td>
+                <td>
+                    <a href="/weaponfactories/edit/<%= oneFactory._id %>">edit</a>
+                    <a href="/weaponfactories/del/<%= oneFactory._id %>">delete</a>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+</div>
+
+<form class="add-item" action="/weaponfactories/new">
+    <input type="submit" value="Add new factory" />
+</form>
+
+<%- include('footer') -%>

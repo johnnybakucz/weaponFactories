@@ -1,0 +1,26 @@
+<%- include('header') -%>
+
+<h1>Factory 
+    <% if (typeof factory === 'undefined') { %>
+        creation
+    <% }else{ %>
+        edit
+    <% } %>
+</h1>
+
+<div class="form-container">
+    <form method="POST">
+        <label class="text-field-label" for="name">Name</label>
+        <input class="text-field" id="name" name="name" type="text" value="<%= (typeof factory === 'undefined') ? '' : factory.name %>"/>
+        <label class="text-field-label" for="country">Country</label>
+        <input class= "text-field" id="country" name="country" type="text" value="<%= (typeof factory === 'undefined') ? '' : factory.country %>"/>
+        
+        <div class="modify-buttons-container">
+            <input class="modify-button" type="submit" value="Save"/>
+            <a href="/">Cancel</a>
+        </div>
+
+    </form>
+</div>
+
+<%- include('footer') -%>
