@@ -15,6 +15,7 @@
             typeof req.body.inProduction === 'undefined' ||
             typeof res.locals.factory === 'undefined'
         ) {
+            console.log("undefined dolgok a save middleware-ben")
             return next();
         }
 
