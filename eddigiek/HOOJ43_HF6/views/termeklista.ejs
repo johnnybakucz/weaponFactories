@@ -1,0 +1,62 @@
+<%- include('header') -%>
+
+<form class="back-button" action="/">
+    <input class="back-button" type="submit" value="Vissza" />
+</form>
+<br>
+<br>
+
+<h2><%= fozde.nev %></h2>
+
+<h1>Termékek</h1>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Kóstolva</th>
+            <th>Név</th>
+            <th>Típus</th>
+            <th>Alkoholtartalom<br>[%]</th>
+            <th>Keserűség<br>[IBU]</th>
+            <th>Szerkesztés/törlés</th>
+        </tr>
+        <% termeklista.forEach(function(egyTermek){ %>
+            <tr>
+                <td>
+                    <% if (egyTermek.kostolva) { %>
+                        <form method="POST" action="/termek/<%= fozde._id %>/nem_kostolva/<%= egyTermek._id %>">
+                            <input type="checkbox" name="kostolva" Checked onChange="this.form.submit()">
+                        </form>
+                    <% } else { %>
+                        <form method="POST" action="/termek/<%= fozde._id %>/kostolva/<%= egyTermek._id %>">
+                            <input type="checkbox" name="kostolva" onChange="this.form.submit()">
+                        </form>
+                    <% } %>
+                </td>
+                
+                <td>
+                    <%= egyTermek.nev %>
+                </td>
+                <td>
+                    <%= egyTermek.tipus %>
+                </td>
+                <td>
+                    <%= egyTermek.alkohol %>
+                </td>
+                <td>
+                    <%= egyTermek.keseruseg %>
+                </td>
+                <td>
+                    <a href="/termek/<%= fozde._id %>/szerk/<%= egyTermek._id %>">szerkesztés</a>
+                    <a href="/termek/<%= fozde._id %>/torles/<%= egyTermek._id %>">törlés</a>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+</div>
+
+<form class="add-item" action="/termek/<%= fozde._id %>/uj">
+    <input type="submit" value="Termék hozzáadása" />
+</form>
+
+<%- include('footer') -%>

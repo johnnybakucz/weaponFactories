@@ -1,0 +1,26 @@
+<%- include('header') -%>
+
+<h1>Főzde 
+    <% if (typeof fozde === 'undefined') { %>
+        hozzáadása
+    <% }else{ %>
+        módosítása
+    <% } %>
+</h1>
+
+<div class="form-container">
+    <form method="POST">
+        <label class="text-field-label" for="nev">Név</label>
+        <input class="text-field" id="name" name="nev" type="text" value="<%= (typeof fozde === 'undefined') ? '' : fozde.nev %>"/>
+        <label class="text-field-label" for="telepules">Település</label>
+        <input class= "text-field" id="town" name="telepules" type="text" value="<%= (typeof fozde === 'undefined') ? '' : fozde.telepules %>"/>
+        
+        <div class="modify-buttons-container">
+            <input class="modify-button" type="submit" value="Mentés"/>
+            <a href="/">Mégsem</a>
+        </div>
+
+    </form>
+</div>
+
+<%- include('footer') -%>

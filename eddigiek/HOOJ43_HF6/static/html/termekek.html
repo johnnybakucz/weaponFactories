@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Sörbakancslista</title>
+<link rel="stylesheet" href="../css/sorbakancslista.css">
+</head>
+<body>
+
+<form class="back-button" action="fozdek.html">
+    <input class="back-button" type="submit" value="Vissza" />
+</form>
+<br>
+<br>
+
+<h2>Fűtőház</h2>
+
+<h1>Termékek</h1>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Kóstolva</th>
+            <th>Név</th>
+            <th>Típus</th>
+            <th>Alkoholtartalom<br>[%]</th>
+            <th>Keserűség<br>[IBU]</th>
+            <th>Szerkesztés/törlés</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="1" Checked></td>
+            <td>M61 Nohab</td>
+            <td>IPA</td>
+            <td>6,5</td>
+            <td>50,3</td>
+            <td>
+                <a href="termek_szerk.html">szerkesztés</a>
+                <a href="termekek.html">törlés</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="2"></td>
+            <td>M63 Bulldog</td>
+            <td>belga golden ale</td>
+            <td>8,5</td>
+            <td>18,1</td>
+            <td>
+                <a href="termek_szerk.html">szerkesztés</a>
+                <a href="termekek.html">törlés</a>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" value="3"></td>
+            <td>Trans Europ Express</td>
+            <td>belga pale ale</td>
+            <td>5,3</td>
+            <td>25</td>
+            <td>
+                <a href="termek_szerk.html">szerkesztés</a>
+                <a href="termekek.html">törlés</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<form class="add-item" action="termek_szerk.html">
+    <input type="submit" value="Termék hozzáadása" />
+</form>
+
+</body>
+</html>

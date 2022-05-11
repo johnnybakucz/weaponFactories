@@ -1,0 +1,31 @@
+<%- include('header') -%>
+
+<h1>Főzdék</h1>
+
+<div class="table-container">
+    <table>
+        <tr>
+            <th>Név</th>
+            <th>Település</th>
+            <th>Szerkesztés/törlés</th>
+        </tr>
+        <% fozdelista.forEach(function(egyFozde){ %>
+            <tr>
+                <td>
+                    <a href="/termek/<%= egyFozde._id %>"><%= egyFozde.nev %></a>
+                </td>
+                <td><%= egyFozde.telepules %></td>
+                <td>
+                    <a href="/fozde/szerk/<%= egyFozde._id %>">szerkesztés</a>
+                    <a href="/fozde/torles/<%= egyFozde._id %>">törlés</a>
+                </td>
+            </tr>
+        <% }); %>
+    </table>
+</div>
+
+<form class="add-item" action="/fozde/uj">
+    <input type="submit" value="Sörfőzde hozzáadása" />
+</form>
+
+<%- include('footer') -%>
