@@ -7,6 +7,9 @@
         <tr>
             <th>Name</th>
             <th>Country</th>
+            <th>Worth</th>
+            <th>Estabilished</th>
+            <th>Number of models</th>
             <th> - </th>
         </tr>
         <% factoryList.forEach(function(oneFactory){ %>
@@ -15,6 +18,9 @@
                     <a href="/weaponmodels/<%= oneFactory._id %>"><%= oneFactory.name %></a>
                 </td>
                 <td><%= oneFactory.country %></td>
+                <td><%= oneFactory.worth %></td>
+                <td><%= oneFactory.estabilished %></td>
+                <td><%= oneFactory.noModels %></td>
                 <td>
                     <a href="/weaponfactories/edit/<%= oneFactory._id %>">edit</a>
                     <a href="/weaponfactories/del/<%= oneFactory._id %>">delete</a>

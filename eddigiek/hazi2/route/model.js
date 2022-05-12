@@ -36,7 +36,7 @@ module.exports = function (app) {
         getModelMW(objRepo),
         saveActiveMW(objRepo, true)
     );
-    app.use('/weaponmodels/:factoryid/not_active/:termekid/',
+    app.use('/weaponmodels/:factoryid/not_active/:modelid/',
         getFactoryMW(objRepo),
         getModelMW(objRepo),
         saveActiveMW(objRepo, false)

@@ -1,62 +1,62 @@
 <%- include('header') -%>
 
 <form class="back-button" action="/">
-    <input class="back-button" type="submit" value="Vissza" />
+    <input class="back-button" type="submit" value="Home" />
 </form>
 <br>
 <br>
 
-<h2><%= fozde.nev %></h2>
+<h2><%= factory.name %></h2>
 
-<h1>Termékek</h1>
+<h1>Models</h1>
 
 <div class="table-container">
     <table>
         <tr>
-            <th>Kóstolva</th>
-            <th>Név</th>
-            <th>Típus</th>
-            <th>Alkoholtartalom<br>[%]</th>
-            <th>Keserűség<br>[IBU]</th>
-            <th>Szerkesztés/törlés</th>
+            <th>In production?</th>
+            <th>Name</th>
+            <th>Caliber</th>
+            <th>Sold</th>
+            <th>Year of development</th>
+            <th> - </th>
         </tr>
-        <% termeklista.forEach(function(egyTermek){ %>
+        <% modelList.forEach(function(oneModel){ %>
             <tr>
                 <td>
-                    <% if (egyTermek.kostolva) { %>
-                        <form method="POST" action="/termek/<%= fozde._id %>/nem_kostolva/<%= egyTermek._id %>">
-                            <input type="checkbox" name="kostolva" Checked onChange="this.form.submit()">
+                    <% if (oneModel.inProduction) { %>
+                        <form method="POST" action="/weaponmodels/<%= factory._id %>/active/<%= oneModel._id %>">
+                            <input type="checkbox" name="inProduction"  onChange="this.form.submit()">
                         </form>
                     <% } else { %>
-                        <form method="POST" action="/termek/<%= fozde._id %>/kostolva/<%= egyTermek._id %>">
-                            <input type="checkbox" name="kostolva" onChange="this.form.submit()">
+                        <form method="POST" action="/weaponmodels/<%= factory._id %>/not_active/<%= oneModel._id %>">
+                            <input type="checkbox" name="inProduction" Checked onChange="this.form.submit()">
                         </form>
                     <% } %>
                 </td>
                 
                 <td>
-                    <%= egyTermek.nev %>
+                    <%= oneModel.name %>
                 </td>
                 <td>
-                    <%= egyTermek.tipus %>
+                    <%= oneModel.caliber %>
                 </td>
                 <td>
-                    <%= egyTermek.alkohol %>
+                    <%= oneModel.sold %>
                 </td>
                 <td>
-                    <%= egyTermek.keseruseg %>
+                    <%= oneModel.developmentYear %>
                 </td>
                 <td>
-                    <a href="/termek/<%= fozde._id %>/szerk/<%= egyTermek._id %>">szerkesztés</a>
-                    <a href="/termek/<%= fozde._id %>/torles/<%= egyTermek._id %>">törlés</a>
+                    <a href="/weaponmodels/<%= factory._id %>/edit/<%= oneModel._id %>">edit</a>
+                    <a href="/weaponmodels/<%= factory._id %>/del/<%= oneModel._id %>">delete</a>
                 </td>
             </tr>
         <% }); %>
     </table>
 </div>
 
-<form class="add-item" action="/termek/<%= fozde._id %>/uj">
-    <input type="submit" value="Termék hozzáadása" />
+<form class="add-item" action="/weaponmodels/<%= factory._id %>/new">
+    <input type="submit" value="Add new model" />
 </form>
 
 <%- include('footer') -%>

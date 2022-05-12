@@ -11,10 +11,10 @@ module.exports = function (objectrepository, checked) {
         }
 
         if(checked){
-            res.locals.model.active = true;
+            res.locals.model.inProduction = false;
         }
         else {
-            res.locals.model.active = false;
+            res.locals.model.inProduction = true;
         }
         
         res.locals.model.save(err => {

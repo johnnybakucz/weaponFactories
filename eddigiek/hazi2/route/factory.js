@@ -5,12 +5,12 @@ const getFactoryMW = require('../middleware/factory/getFactoryMW');
 const saveFactoryMW = require('../middleware/factory/saveFactoryMW');
 
 const FactoryModel = require('../model/factory');
-const FactoryModel = require('../model/model');
+const ModelModel = require('../model/model');
 
 module.exports = function (app) {
     const objRepo = {
         FactoryModel: FactoryModel,
-        FactoryModel: FactoryModel
+        ModelModel: ModelModel
     };
 
     app.use('/weaponfactories/new',

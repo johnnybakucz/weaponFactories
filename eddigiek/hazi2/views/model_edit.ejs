@@ -12,17 +12,17 @@
     <form method="POST">
         
         <label class="text-field-label" for="name">Name</label>
-        <input class="text-field" id="name" name="name" type="text" value="<%= (typeof model === 'undefined') ? '' : model.nev %>"/>
+        <input class="text-field" id="name" name="name" type="text" value="<%= (typeof model === 'undefined') ? '' : model.name %>"/>
         <label class="text-field-label" for="caliber">Caliber</label>
         <input class= "text-field" id="caliber" name="caliber" type="text" value="<%= (typeof model === 'undefined') ? '' : model.caliber %>"/>
-        <label class="text-field-label" for="alkohol">Alkoholtartalom</label>
-        <input class="text-field" id="alkohol" name="alkohol" type="text" value="<%= (typeof model === 'undefined') ? '' : model.alkohol %>"/>
-        <label class="text-field-label" for="keseruseg">Keserűség</label>
-        <input class="text-field" id="keseruseg" name="keseruseg" type="text" value="<%= (typeof model === 'undefined') ? '' : model.keseruseg %>"/>
+        <label class="text-field-label" for="sold">Sold</label>
+        <input class="text-field" id="sold" name="sold" type="text" value="<%= (typeof model === 'undefined') ? '' : model.sold %>"/>
+        <label class="text-field-label" for="developmentYear">Year of development</label>
+        <input class="text-field" id="developmentYear" name="developmentYear" type="text" value="<%= (typeof model === 'undefined') ? '' : model.developmentYear %>"/>
         
         <div class="modify-buttons-container">
-            <input class="modify-button" type="submit" value="Mentés"/>
-            <a href="/termek/<%= fozde._id %>">Mégsem</a>
+            <input class="modify-button" type="submit" value="Save"/>
+            <a href="/weaponmodels/<%= factory._id %>">Cancel</a>
         </div>
 
     </form>
