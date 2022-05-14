@@ -24,6 +24,14 @@ module.exports = function (objectrepository) {
             res.locals.model = new ModelModel();
         }
 
+        if (Number.isNaN(parseInt(req.body.sold, 10))) {
+            return next(new Error('sold must be a number!'));
+        }
+
+        if (Number.isNaN(parseInt(req.body.developmentYear, 10))) {
+            return next(new Error('developmentYear must be a number!'));
+        }
+
         res.locals.model.name = req.body.name;
         res.locals.model.caliber = req.body.caliber;
         res.locals.model.sold = req.body.sold;
