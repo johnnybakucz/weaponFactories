@@ -154,4 +154,156 @@ describe('saveModel middleware', function(){
         err=>{}
         );
     });
+    it('name is undefined', function(done){
+        const mw = saveModelMW({
+            ModelModel:'model'
+        });
+
+        mw(
+        {
+            body:{
+                name:undefined,
+                caliber:'b',
+                sold:10,
+                developmentYear:20
+            },
+            params:{
+                modelid: '20'
+            }
+        },
+        {
+            locals:{
+                factory:{
+                    _id:'factoryid'
+                },
+                model:{
+                    save:cb=>{
+                        cb(null);
+                    }
+                }
+            },
+            redirect: (where)=>{
+                expect(where).to.be.eql('/weaponmodels/factoryid')
+                done();
+            }
+        },
+        err=>{
+            done();
+        }
+        );
+    });
+    it('caliber is undefined', function(done){
+        const mw = saveModelMW({
+            ModelModel:'model'
+        });
+
+        mw(
+        {
+            body:{
+                name:'a',
+                caliber:undefined,
+                sold:10,
+                developmentYear:20
+            },
+            params:{
+                modelid: '20'
+            }
+        },
+        {
+            locals:{
+                factory:{
+                    _id:'factoryid'
+                },
+                model:{
+                    save:cb=>{
+                        cb(null);
+                    }
+                }
+            },
+            redirect: (where)=>{
+                expect(where).to.be.eql('/weaponmodels/factoryid')
+                done();
+            }
+        },
+        err=>{
+            done();
+        }
+        );
+    });
+    it('sold is undefined', function(done){
+        const mw = saveModelMW({
+            ModelModel:'model'
+        });
+
+        mw(
+        {
+            body:{
+                name:'a',
+                caliber:'b',
+                sold:undefined,
+                developmentYear:20
+            },
+            params:{
+                modelid: '20'
+            }
+        },
+        {
+            locals:{
+                factory:{
+                    _id:'factoryid'
+                },
+                model:{
+                    save:cb=>{
+                        cb(null);
+                    }
+                }
+            },
+            redirect: (where)=>{
+                expect(where).to.be.eql('/weaponmodels/factoryid')
+                done();
+            }
+        },
+        err=>{
+            done();
+        }
+        );
+    });
+    it('develeopmentYear is undefined', function(done){
+        const mw = saveModelMW({
+            ModelModel:'model'
+        });
+
+        mw(
+        {
+            body:{
+                name:'a',
+                caliber:'b',
+                sold:10,
+                developmentYear:undefined
+            },
+            params:{
+                modelid: '20'
+            }
+        },
+        {
+            locals:{
+                factory:{
+                    _id:'factoryid'
+                },
+                model:{
+                    save:cb=>{
+                        cb(null);
+                    }
+                }
+            },
+            redirect: (where)=>{
+                expect(where).to.be.eql('/weaponmodels/factoryid')
+                done();
+            }
+        },
+        err=>{
+            done();
+        }
+        );
+    });
 });
